@@ -89,7 +89,7 @@ int main(void) {
     sleep (DELAY);
 
     int pid = getpid();
-    int i = 0
+    int i = 0;
     while( i < sizeof(progs)/sizeof(char*)){
         if (fork() == 0) {
             execlp(progs[i], progs[i], NULL);
