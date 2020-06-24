@@ -5,7 +5,7 @@
 
 // adjust DELAY and akunGitHub
 #define  DELAY 4
-#define  akunGitHub "akunGH1"
+#define  akunGitHub "raniapriliaa"
 #include "p00.h"
 
 char*    progs[]={P01, P02, P03};

@@ -26,7 +26,7 @@
 #define NOTBOSS      1
 #define CHMOD        0666
 #define CLOSED       127
-#define MAXPROGS     20
+#define MAXPROGS     7
 #define MUTEX        1
 #define MYFLAGS      O_CREAT|O_RDWR
 #define MYPROTECTION PROT_READ|PROT_WRITE
