@@ -143,6 +143,24 @@ int main(int argc, char* argv[]) {
     sprintf(tmpStr, "START PID[%d] PPID[%d]", getpid(), getppid());
     myPrint(akunGitHub, tmpStr);
     init(boss, argc, argv);
+    if (boss == BOSS){
+        if (!fork()) execlp(progs[1], progs[1], NULL) < 0;
+        else{
+            if (!fork()) execlp(progs[2], progs[2], NULL) < 0;
+            else{
+                if (!fork()) execlp(progs[3], progs[3], NULL) < 0;
+                else{
+                    if (!fork()) execlp(progs[4], progs[4], NULL) < 0;
+                    else{
+                      if (!fork()) execlp(progs[5], progs[5], NULL) < 0;
+                      else{
+                        if (!fork()) execlp(progs[6], progs[6], NULL) < 0;
+                      }
+                    }
+                }
+            }
+        }
+    }
     checkOpen();
     sleep  (delay);
     int entry = getEntry(akunGitHub);
