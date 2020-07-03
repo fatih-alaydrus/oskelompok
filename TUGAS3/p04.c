@@ -5,7 +5,7 @@
  */
 
 #include "share.h"
-char*    akunGitHub = "akunGH4";
+char*    akunGitHub = "raniapriliaa";
 int      delay      = 4;
 int      boss       = NOTBOSS;
 
