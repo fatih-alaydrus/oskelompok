@@ -23,15 +23,17 @@ void init(int isboss, int argc, char* argv[]) {
         ftruncate(fd, ssize);
         mymap=mmap(NULL, ssize, MYPROTECTION, MYVISIBILITY, fd, 0);
         close(fd);
-        //
-        // Blah... Blah... Blah.. harap lengkapi!
-        // Lalu dihapus dong, baris Blah... Blah... Blahnya!
-        //
+        
+        mymap->state = OPEN;
+        
         sem_init (&(mymap->mutex), 1, MUTEX); // lihat manual sem_init()!
-        //
-        // Blah... Blah... Blah.. harap lengkapi!
-        // Lalu dihapus dong, baris Blah... Blah... Blahnya!
-        //
+        
+        if (argc > 1){
+            mymap->state = OPEN;
+            printf("ShareMemory is OPEN, BYE BYE ==== ====\n");
+            exit(0);
+        }
+        
     } else {
         sleep(delay);
         if( access(SHAREMEM, F_OK ) == -1 ) {
@@ -59,10 +61,23 @@ void myPrint(char* str1, char* str2) {
 int getEntry(char* akunGitHub) {
     int entry=0;
     sem_wait (&(mymap->mutex));
-    //
-    // Blah... Blah... Blah.. harap lengkapi!
-    // Lalu dihapus dong, baris Blah... Blah... Blahnya!
-    //
+    
+     if (mymap->entry == 7){ //xxx
+        int i = 0;
+        while(i < mymap->entry){
+            int compare = strcmp(mymap->progs[i].akun, akunGitHub);
+            if (compare == 0){
+                entry = i;
+                break;
+            }
+            i++;
+        }
+    }
+    else entry = mymap->entry++;
+    
+    mymap->mutexctr++;
+    mymap->progs[entry].stamp++;
+    
     sem_post (&(mymap->mutex));
     return entry;
 }
@@ -72,10 +87,21 @@ int getEntry(char* akunGitHub) {
 // Tue Jun  9 17:46:47 WIB 2020
 void display(int entry) {
     sem_wait (&(mymap->mutex));
-    //
-    // Blah... Blah... Blah.. harap lengkapi!
-    // Lalu dihapus dong, baris Blah... Blah... Blahnya!
-    //
+    
+    memset(tmpStr, 0, 255);
+    mymap->progs[entry].stamp++;
+    mymap->mutexctr++;
+    
+    char state[11]={}; //xxx
+    if(mymap->state == OPEN) sprintf(state, "MMAP[%s]", "OPEN");
+    sprintf(tmpStr, "progs[%2.2d] TIME[%2.2d] MUTEX[%2.2d] %s ", entry, mymap->mutexctr, mymap->progs[entry].stamp, state);
+    int i = 0;
+    while (i < mymap->entry){
+        sprintf(tmpStr, "%s[%s]", tmpStr, mymap->progs[i].akun);
+        i++;
+    }
+    myPrint(akunGitHub, tmpStr);
+    
     sem_post (&(mymap->mutex));
 }
 
@@ -84,10 +110,9 @@ void display(int entry) {
 // Tue Jun  9 17:46:47 WIB 2020
 void putInfo(char* akun, int entry) {
     sem_wait (&(mymap->mutex));
-    //
-    // Blah... Blah... Blah.. harap lengkapi!
-    // Lalu dihapus dong, baris Blah... Blah... Blahnya!
-    //
+    strcpy(mymap->progs[entry].akun, akun);
+    mymap->progs[entry].stamp++;
+    mymap->mutexctr++;
     sem_post (&(mymap->mutex));
 }
 
@@ -95,20 +120,20 @@ void putInfo(char* akun, int entry) {
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 void checkOpen(void) {
-    //
-    // Blah... Blah... Blah.. harap lengkapi!
-    // Lalu dihapus dong, baris Blah... Blah... Blahnya!
-    //
+    if(mymap->state == CLOSED) {
+        printf("ShareMemory is NOT OPEN, BYE BYE ==== ====\n");
+        exit(0);
+    }
 }
 
 // abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 void myWait(int boss, int entry) {
-    //
-    // Blah... Blah... Blah.. harap lengkapi!
-    // Lalu dihapus dong, baris Blah... Blah... Blahnya!
-    //
+    if (boss == BOSS){
+        for (int i = 0; i < mymap->entry; i++) wait(NULL);
+        mymap->state = CLOSED;
+    }
 }
 
 // abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
