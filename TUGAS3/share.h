@@ -1,5 +1,5 @@
 /*
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
  */
@@ -9,6 +9,8 @@
 #define P02 "./p02"
 #define P03 "./p03"
 #define P04 "./p04"
+#define P05 "./p05"
+#define P06 "./p06"
 
 #include <fcntl.h>
 #include <semaphore.h>
