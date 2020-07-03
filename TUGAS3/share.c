@@ -5,7 +5,7 @@
  */
 
 #include     "share.h"
-char*        progs[]={P01, P02, P03, P04, P05, P06};
+char*        progs[]={P00, P01, P02, P03, P04, P05, P06};
 char         tmpStr[256]={};
 extern char* akunGitHub;
 extern int   delay;
