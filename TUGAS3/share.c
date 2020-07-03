@@ -1,18 +1,18 @@
 /*
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
  */
 
 #include     "share.h"
-char*        progs[]={P01, P02, P03, P04};
+char*        progs[]={P01, P02, P03, P04, P05, P06};
 char         tmpStr[256]={};
 extern char* akunGitHub;
 extern int   delay;
 extern int   boss;
 myshare*     mymap;
 
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 void init(int isboss, int argc, char* argv[]) {
@@ -45,7 +45,7 @@ void init(int isboss, int argc, char* argv[]) {
     }
 }
 
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 void myPrint(char* str1, char* str2) {
@@ -53,7 +53,7 @@ void myPrint(char* str1, char* str2) {
     fflush(NULL);
 }
 
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 int getEntry(char* akunGitHub) {
@@ -67,7 +67,7 @@ int getEntry(char* akunGitHub) {
     return entry;
 }
 
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 void display(int entry) {
@@ -79,7 +79,7 @@ void display(int entry) {
     sem_post (&(mymap->mutex));
 }
 
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 void putInfo(char* akun, int entry) {
@@ -91,7 +91,7 @@ void putInfo(char* akun, int entry) {
     sem_post (&(mymap->mutex));
 }
 
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 void checkOpen(void) {
@@ -101,7 +101,7 @@ void checkOpen(void) {
     //
 }
 
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 void myWait(int boss, int entry) {
@@ -111,7 +111,7 @@ void myWait(int boss, int entry) {
     //
 }
 
-// Tambahkan di sini nama para kontributor (akunGitHub)
+// abhiprayatj, stefansagala, reynardryanda, fatih-alaydrus, raniapriliaa, billhsyn, fadhilhmr
 // Harap UPDATE tanggal revisi!
 // Tue Jun  9 17:46:47 WIB 2020
 int main(int argc, char* argv[]) {
